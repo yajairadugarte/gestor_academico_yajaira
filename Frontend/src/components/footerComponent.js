@@ -13,15 +13,15 @@ function Footer(props){
                         <li><Link to="/admin">Adminstrador</Link></li>
                         <li><Link to="/teacher">Profesor</Link></li>
                         <li><Link to="/student">Estudiantes</Link></li>
-                        <li><Link to="/">Sobre nosotros</Link></li>
+                        <li><Link to="/sobre nosotros">Sobre nosotros</Link></li>
                     </ul>
                 </div>
                 <div className="col-7 col-sm-5">
                     <h5>Our Address</h5>
                     <address>
-		              Su dirección<br />
-		              Barrio<br />
-		              Ciudad<br />
+		              Dirección: carrera 26 calle 75 <br />
+		              Barrio: los Naranjos<br />
+		              Ciudad: Cali <br />
 		              <i className="fa fa-phone fa-lg"></i>: Teléfono 1<br />
 		              <i className="fa fa-fax fa-lg"></i>: Teléfono 2<br />
 		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">

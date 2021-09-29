@@ -23,6 +23,7 @@ class mainComponent extends Component {
 				<Route path="/admin" component={Admin}/>
 				<Route path="/student" component={Student}/>
 				<Route path="/teacher" component={Teacher}/>
+				
         <Footer/>
       		</div>
     	);
