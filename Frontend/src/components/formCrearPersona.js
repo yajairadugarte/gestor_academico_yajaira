@@ -7,16 +7,16 @@ class formCrearPersona extends Component {
       super(props)
 
       this.state = {
-          DocIdent: "",
-          nombre: "",
-          apellido: "",
-          correoElectronico: "",
-          telefono: "",
-          celular: "",
-          fechaNac: "",
-          nacionalidad: "",
-          genero: "", 
-          direccion: ""
+          Docid: "",
+          name: "",
+          Lastname: "",
+          Email: "",
+          Telephone: "",
+          Mobile: "",
+          Date_Born: "",
+          nationality: "",
+          Gender: "", 
+          
       }
 
       this.crearPersona = this.crearPersona.bind(this);
@@ -25,15 +25,15 @@ class formCrearPersona extends Component {
 
   async crearPersona(){
     await axios.post('http://localhost:4000/api/admin/crearPersona' ,{
-      DocIdent: this.state.DocIdent,
-      nombre: this.state.nombre,
-      apellido: this.state.apellido,
-      correoElectronico: this.state.correoElectronico,
-      celular: this.state.celular,
-      fechaNac: this.state.fechaNac,
-      nacionalidad: this.state.nacionalidad,
-      genero: this.state.genero,
-      direccion: this.state.direccion
+      Docid: this.state.DocIdent,
+      name: this.state.nombre,
+      Lastname: this.state.apellido,
+      Email: this.state.correoElectronico,
+      Telephone: this.state.celular,
+      Mobile: this.state.fechaNac,
+      Date_Born: this.state.nacionalidad,
+      nationality: this.state.genero,
+      Gender: this.state.direccion
     })
   }  
 
@@ -41,43 +41,49 @@ class formCrearPersona extends Component {
     return (
       <div class="container">
       <div class="row">
+      <div className="formulario">
         <InputGroup className="mb-3">
-          <Button onClick={this.crearPersona}variant="outline-secondary" id="button-addon1">
-            Guardar Aqui
-          </Button>
+         
       <FormControl
             aria-label="Example text with button addon"
             aria-describedby="basic-addon1" 
             placeholder="Documento Identidad"
             value={this.state.DocIdent}
-            onChange={e => this.setState({DocIdent:e.target.value})}
+            onChange={e => this.setState({ Docid:e.target.value})}
       type="text"/>
     
       </InputGroup>
+      </div>
   </div> 
   <div class="row">
+  <div className="formulario">
     <InputGroup className="mb-3">
       <FormControl
             aria-label="Example text with button addon"
             aria-describedby="basic-addon1" 
             placeholder="Nombre"
-            value={this.state.nombre}
-            onChange={e => this.setState({nombre:e.target.value})}
+            value={this.state.name}
+            onChange={e => this.setState({ name:e.target.value})}
             type="text"/>
       </InputGroup>
-      </div>   
+      </div> 
+      </div>
+      
       <div class="row">
+      <div className="formulario">
     <InputGroup className="mb-3">
       <FormControl
             aria-label="Example text with button addon"
             aria-describedby="basic-addon1" 
             placeholder="Apellido"
-            value={this.state.apellido}
-            onChange={e => this.setState({apellido :e.target.value})}
+            value={this.state.lastname}
+            onChange={e => this.setState({lastname:e.target.value})}
             type="text"/>
       </InputGroup>
+      </div> 
       </div>   
       <div class="row">
+      <div className="formulario">
     <InputGroup className="mb-3">
       <FormControl
             aria-label="Example text with button addon"
@@ -87,75 +93,83 @@ class formCrearPersona extends Component {
             onChange={e => this.setState({email :e.target.value})}
             type="text"/>
       </InputGroup>
+      </div>
       </div>   
       <div class="row">
+      <div className="formulario">
     <InputGroup className="mb-3">
       <FormControl
             aria-label="Example text with button addon"
             aria-describedby="basic-addon1" 
             placeholder="Telèfono"
-            value={this.state.telefono}
-            onChange={e => this.setState({telefono :e.target.value})}
+            value={this.state. Telephone}
+            onChange={e => this.setState({Telephone:e.target.value})}
       type="text"/>
       </InputGroup>
+      </div>
       </div>   
       <div class="row">
+      <div className="formulario">
     <InputGroup className="mb-3">
       <FormControl
             aria-label="Example text with button addon"
             aria-describedby="basic-addon1" 
             placeholder="celular"
-            value={this.state.celular}
-            onChange={e => this.setState({celular :e.target.value})}
+            value={this.state.Mobile}
+            onChange={e => this.setState({Mobile :e.target.value})}
       type="text"/>
       </InputGroup>
+      </div> 
       </div>   
       <div class="row">
+      <div className="formulario">
     <InputGroup className="mb-3">
       <FormControl
             aria-label="Example text with button addon"
             aria-describedby="basic-addon1" 
             placeholder="Fecha Nacimiento"
-            value={this.state.fechaNac}
-            onChange={e => this.setState({fechaNac :e.target.value})}
+            value={this.state.Date_Born}
+            onChange={e => this.setState({Date_Born:e.target.value})}
       type="text"/>
       </InputGroup>
+      </div>
       </div>   
       <div class="row">
+      <div className="formulario">
     <InputGroup className="mb-3">
       <FormControl
             aria-label="Example text with button addon"
             aria-describedby="basic-addon1" 
             placeholder="Nacionalidad"
-            value={this.state.nacionalidad}
-            onChange={e => this.setState({nacionalidad :e.target.value})}
+            value={this.state.nationality}
+            onChange={e => this.setState({nationality:e.target.value})}
             type="text"/>
       </InputGroup>
       </div>
+      </div>
       <div class="row">
+      <div className="formulario">
     <InputGroup className="mb-3">
       <FormControl
             aria-label="Example text with button addon"
             aria-describedby="basic-addon1" 
             placeholder="Genero"
-            value={this.state.genero }
-            onChange={e => this.setState({genero :e.target.value})}
+            value={this.state.Gender }
+            onChange={e => this.setState({Gender :e.target.value})}
       type="text"/>
       </InputGroup>
+	  <div className="Boton"> 
+	    <button type="button" class="btn btn-primary" onClick={this.crearPersona}variant="outline-secondary" id="button-addon1"> 
+	      Guardar Aqui
+	    </button>
+		</div>
+	    
       </div> 
-      <div class="row">
-    <InputGroup className="mb-3">
-      <FormControl
-            aria-label="Example text with button addon"
-            aria-describedby="basic-addon1" 
-            placeholder="dirección"
-            value={this.state.direccion }
-            onChange={e => this.setState({direccion :e.target.value})}
-      type="text"/>
-      </InputGroup>
-      </div>     
-
+      </div> 
+    
     </div>
+    
+    
     )
   }
 }
