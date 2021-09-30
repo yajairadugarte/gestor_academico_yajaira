@@ -8,25 +8,25 @@ import axios from 'axios';
 class AdminComponent extends Component {
 
 		constructor(props){
-		  super(props)
-	  
-		  this.state = {
+			super(props)
+		
+			this.state = {
 			mostrarEsconderFormulario: false
 		}
-		  this.mostrarEsconderFormulario = this.mostrarEsconderFormulario.bind(this)
-		  this.changeVar_1 = this.changeVar_1.bind(this);
+			this.mostrarEsconderFormulario = this.mostrarEsconderFormulario.bind(this)
+			this.changeVar_1 = this.changeVar_1.bind(this);
 		}
-	  
+		
 		mostrarEsconderFormulario(){
-		  this.setState({mostrar: !this.state.mostrarEsconderFormulario})
+			this.setState({mostrar: !this.state.mostrarEsconderFormulario})
 		}
-	  
+		
 		async changeVar_1 () {
-		  const res = await axios.get('http://localhost:4000/api/admin/getAdmins');
-		  this.setState({admin:res.data[0]});
+			const res = await axios.get('http://localhost:4000/api/admin/getAdmins');
+			this.setState({admin:res.data[0]});
 		};
-	  
-	  
+		
+		
 		
 	
 
@@ -47,17 +47,19 @@ class AdminComponent extends Component {
 			
 										 
 						<ButtonGroup  class="btn-group btn-group-lg" >
-						    <DropdownButton 
-						      className="miboton"as={ButtonGroup} title="Administrador" id="bg-nested-dropdown" onClick={() => this.setState({mostrarEsconderFormulario: !this.state.mostrarEsconderFormulario})}>
-						      <Dropdown.Item eventKey="1"> Crear Persona</Dropdown.Item>
-					       </DropdownButton>
+								<DropdownButton 
+									className="miboton"as={ButtonGroup} title="Administrador" id="bg-nested-dropdown" 
+									onClick={() => this.setState({mostrarEsconderFormulario: !this.state.mostrarEsconderFormulario})}>
+									<div  class="row">
+									   <Dropdown.Item eventKey="1"> Crear Persona </Dropdown.Item>
+									</div>   
+
+								 </DropdownButton>
 												
-					    </ButtonGroup>
-						 
-						  
-                              {this.state.mostrarEsconderFormulario ? <FormCrearpersona/> : ""}
-                        
-    
+							</ButtonGroup>
+						    	{this.state.mostrarEsconderFormulario ? <FormCrearpersona/> : ""}
+												
+		
 						
 			</div>
 				 

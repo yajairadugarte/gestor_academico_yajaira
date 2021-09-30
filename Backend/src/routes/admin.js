@@ -1,20 +1,48 @@
 const express = require('express');
 const router = express.Router();
 
-//lamado controlador
-const {getAdmins, getAdmin, createProfesor} = require('../controllers/admin.controllers');
+//llamnado controlador
+const {getAdmins, getAdmin, createProfesor, createPersona, createEstudiante, createPrograma, 
+    createAdministrador, createAsignatura, editPersona, editAsignatura, editPrograma} = require('../controllers/admin.controllers');
+
+//Rutas para obtener datos (Tipo GET)
+router.route('/getAdmins')
+    .get(getAdmins); 
+
+router.route('/getAdmin/:id')
+    .get(getAdmin); 
+
+//Rutas para crear datos (Insertar en tablas) (Tipo POST)
+router.route('/crearPersona')
+    .post(createPersona)
+
+router.route('/crearProfesor')
+    .post(createProfesor)
+
+router.route('/crearEstudiante')
+    .post(createEstudiante)
+
+router.route('/crearAdministrador')
+    .post(createAdministrador)
+
+router.route('/crearPrograma')
+    .post(createPrograma)
+
+router.route('/crearAsignatura')
+    .post(createAsignatura)
 
 
-//Esta ruta hace referencia a /api/admin en app.js
+//Rutas para editar datos (Tipo PUT)    
+router.route('/editPersona/:id')
+    .put(editPersona)
 
-router.route('/')
-   .get(getAdmins); 
 
-  router.route('/:id')
-     .get(getAdmin); 
+router.route('/editPrograma/:id')
+    .put(editPrograma)
 
-   
 
+router.route('/editAsignatura/:id')
+    .put(editAsignatura)
 
 
 module.exports = router;

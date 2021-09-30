@@ -1,11 +1,23 @@
 const express = require('express');
 const router = express.Router();
 
-const {getStudents, createStudent} = require('../controllers/students.controllers');
 
-//Esta ruta hace referencia a /api/student en app.js
-router.route('/')
-  .get(getStudents) //se llama desde el controlador.Esto genera orden
-  .post(createStudent)
+//Llamado al controlador
+const {getNotasEstudiante, getNotaEstudiante, getAsignaturas} = require('../controllers/student.controllers');
+
+//Esta ruta hace referencia a /api/teacher en app.js
+//Este metodo permite a un profesor ver sus asignaturas
+router.route('/misNotas/:id_estudiante')
+  .get(getNotasEstudiante)
+
+//Ruta para que un profesor pueda ver sus estudiantes por asignatura
+router.route('/miNota/:id_asignatura&:id_estudiante')
+  .get(getNotaEstudiante)  
+
+
+//Ruta para que un profesor pueda ver sus estudiantes por asignatura
+router.route('/misAsignaturas/:id_estudiante')
+  .get(getAsignaturas)   
+  
 
 module.exports = router;
